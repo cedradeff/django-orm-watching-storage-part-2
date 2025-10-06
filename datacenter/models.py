@@ -32,7 +32,7 @@ class Visit(models.Model):
 
     def get_duration(self):
         start = timezone.localtime(self.entered_at)
-        end = timezone.localtime()
+        end = self.leaved_at or timezone.localtime()
         return end - start
 
     def format_duration(self):
